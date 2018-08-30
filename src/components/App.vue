@@ -1,32 +1,50 @@
-<template> 
-  <div class = "main"> 
-    <div class = "sidebar"></div>
-    <div class = "content">
-        <div class = "editor"></div>
-        <div class = "renderer"></div>
+<template>
+  <div class="main">
+    <div class="sidebar"></div>
+    <div class="content">
+        <editor
+          v-model= "content">
+        </editor>
+        <div class="renderer"></div>
     </div>
   </div>
 </template>
 
-<style> 
-.main{ 
-    height : 100vh;
-    display : flex;
-    overflow : hidden;
+<script>
+import Editor from './Editor'
+
+export default { 
+    data(){ 
+        return {
+            content : ''
+        }
+    },
+
+  components: {
+      Editor
+  }
 }
-.sidebar{ 
-    flex-basis : 20%; 
-    background-color : #eee;
+</script>
+
+<style>
+.main {
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
 }
-.content{ 
-    flex-basis : 80%;
-    display : flex;
+.sidebar {
+  flex-basis: 20%;
+  background-color: #eee;
+}
+.content {
+  flex-basis: 80%;
+  display: flex;
 }
 .editor,
-renderer{ 
-    flex-basis : 50%
+renderer {
+  flex-basis: 50%;
 }
-.editor{ 
-    border-right: 2px solid #ddd
+.editor {
+  border-right: 2px solid #ddd;
 }
 </style>
